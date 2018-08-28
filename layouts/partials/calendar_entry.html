@@ -1,0 +1,35 @@
+<tr>
+    <td>
+        <a name="{{ .date }}" class="calendar-anchor"></a>
+        {{ .date }}
+    </td>
+
+    <td>
+        <ul>
+        {{ range .covers }}
+            <li>{{ with .notes }}<a href="{{ absURL . }}" target="_blank">{{ end }}{{ .title }}{{ with .notes }}</a> {{ end }}</li>
+        {{ end }}
+            {{ if .class_notes }}
+            <li>
+                {{with .class_notes}}<a href="https://gembox.cbcb.umd.edu/cmsc320_class-notes/{{ .link }}" target="_blank">{{ end }}Class Notes</a>
+            </li>
+            {{ end }}
+        </ul>
+    </td>
+
+    <td>
+        <ul>
+        {{ range .prep }}
+            <li>{{ with .link }}<a href="{{ absURL . }}" target="_blank">{{ end }}{{ .title }}{{ with .link }}</a>{{ end }}</li>
+        {{ end }}
+        </ul>
+    </td>
+
+    <td>
+        <ul>
+        {{ range .workdue }}
+            <li>{{ with .link }}<a href="{{ absURL . }}" target="_blank">{{ end }}{{ .title }}{{ with .link }}</a>{{ end }}</li>
+        {{ end }}
+        </ul>
+    </td>
+</tr>
